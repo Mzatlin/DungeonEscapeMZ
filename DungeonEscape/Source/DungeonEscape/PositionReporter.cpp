@@ -20,6 +20,7 @@ void UPositionReporter::BeginPlay()
 	Super::BeginPlay();
 
 	FString ObjectName = GetOwner()->GetName();
+//	FString ObjectLoc = GetOwner()->GetTransform().GetLocation().ToString();
 	FVector LocationVector = GetOwner()->GetActorLocation();
 	FString LocationPosition = LocationVector.ToString();
 	UE_LOG(LogTemp, Warning, TEXT("Position Reporter for %s at %s"), *ObjectName, *LocationPosition);
