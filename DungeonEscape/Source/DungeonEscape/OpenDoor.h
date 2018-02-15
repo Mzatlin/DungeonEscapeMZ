@@ -1,7 +1,7 @@
 // Copyright 2018
 
 #pragma once
-
+#include "Engine/TriggerVolume.h"
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "OpenDoor.generated.h"
@@ -19,6 +19,8 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	void OpenDoor();
+
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
@@ -26,5 +28,9 @@ public:
 private:
 	//UPROPERTY(VisableAnywhere) //macro that will make the openangle viewable in properties windows but can't be edited 
 	float OpenAngle = 90.f;
+	UPROPERTY(EditAnywhere) 
+	ATriggerVolume* PressurePlate;
+	UPROPERTY(EditAnywhere)
+    AActor* ActorThatOpens; //reminder that pawn inherits from actor 
 	
 };
