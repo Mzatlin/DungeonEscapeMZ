@@ -20,17 +20,25 @@ protected:
 	virtual void BeginPlay() override;
 
 	void OpenDoor();
+	void CloseDoor();
 
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-	//UPROPERTY(VisableAnywhere) //macro that will make the openangle viewable in properties windows but can't be edited 
+   //macro that will make the openangle viewable in properties windows and can be edited 
+	UPROPERTY(EditAnywhere)
 	float OpenAngle = 90.f;
 	UPROPERTY(EditAnywhere) 
 	ATriggerVolume* PressurePlate;
-	UPROPERTY(EditAnywhere)
-    AActor* ActorThatOpens; //reminder that pawn inherits from actor 
 	
+	
+	UPROPERTY(EditAnywhere)
+	float DoorCloseDelay = 1.f;
+
+	float LastDoorOpenTime;
+
+    AActor* ActorThatOpens; //reminder that pawn inherits from actor 
+	AActor* Owner; //the owning door
 };
