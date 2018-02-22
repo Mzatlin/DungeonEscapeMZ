@@ -46,5 +46,17 @@ void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorCompone
 	//UE_LOG(LogTemp, Warning, TEXT("Location: %s Rotation: %s"), *ViewPointLocation.ToString(), *ViewPointRotation.ToString());
 	FVector LineTraceEnd = ViewPointLocation + (ViewPointRotation.Vector() * LineReach);
 	DrawDebugLine(GetWorld(), ViewPointLocation, LineTraceEnd, FColor(255, 0, 0),false, 0.f,0.f,10.f);
+
+	///create linetrace (raycast)
+	FHitResult Hit;
+	///set up query parameters for the LineTrace 
+	FCollisionQueryParams TraceParameters(FName(TEXT("")),false, GetOwner()); //trace simple instead of complex objects and ignore ourselves 
+	GetWorld()->LineTraceSingleByObjectType(OUT Hit,ViewPointLocation, LineTraceEnd, FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody),TraceParameters);
+	AActor* HitActor = Hit.GetActor();
+	if (HitActor) {
+		UE_LOG(LogTemp, Warning, TEXT("Collided with: %s"), *(HitActor->GetName()));
+	}
+	
+
 }
 
