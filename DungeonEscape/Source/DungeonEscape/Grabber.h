@@ -1,7 +1,7 @@
 // Copyright 2018
 
 #pragma once
-
+#include "PhysicsEngine/PhysicsHandleComponent.h"
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Grabber.generated.h"
@@ -27,5 +27,5 @@ public:
 //private:
 	float LineReach = 100.f;
 		
-	
+	UPhysicsHandleComponent* Uphysicshandler = nullptr;
 };

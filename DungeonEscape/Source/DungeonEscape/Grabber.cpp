@@ -23,16 +23,11 @@ UGrabber::UGrabber()
 void UGrabber::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
-	//get player view point
-
-	
-
-	
-	//apply a raycast to reach object 
-
-	//find what we hit 
+	///Find physics handle on player
+	Uphysicshandler = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
+	if (Uphysicshandler == nullptr) {
+		UE_LOG(LogTemp, Error, TEXT("physics handler is missig from component %s"), *GetOwner()->GetName());
+	}
 }
 
 
