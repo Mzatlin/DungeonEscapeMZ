@@ -26,8 +26,20 @@ void UGrabber::BeginPlay()
 	///Find physics handle on player
 	Uphysicshandler = GetOwner()->FindComponentByClass<UPhysicsHandleComponent>();
 	if (Uphysicshandler == nullptr) {
-		UE_LOG(LogTemp, Error, TEXT("physics handler is missig from component %s"), *GetOwner()->GetName());
+		UE_LOG(LogTemp, Error, TEXT("physics handler is missing from component %s"), *GetOwner()->GetName());
 	}
+	///Find input component on player
+	Uinput = GetOwner()->FindComponentByClass<UInputComponent>();
+	if (Uinput == nullptr) {
+		UE_LOG(LogTemp, Error, TEXT("input handler is missing from component %s"), *GetOwner()->GetName());
+	}
+	else {
+		Uinput->BindAction("Grab",IE_Pressed, this, &UGrabber::Grab);
+	}
+}
+
+void UGrabber::Grab(){
+	UE_LOG(LogTemp, Warning, TEXT("Grab!"));
 }
 
 

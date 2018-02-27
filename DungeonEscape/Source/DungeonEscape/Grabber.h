@@ -28,4 +28,7 @@ public:
 	float LineReach = 100.f;
 		
 	UPhysicsHandleComponent* Uphysicshandler = nullptr;
+	UInputComponent* Uinput = nullptr;
+	///raycast and grab objects that are in reach 
+	void Grab();
 };
