@@ -1,7 +1,7 @@
 // Copyright 2018
 
 #pragma once
-#include "PhysicsEngine/PhysicsHandleComponent.h"
+#include "PhysicsEngine/PhysicsHandleComponent.h"	
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Grabber.generated.h"
@@ -31,4 +31,6 @@ public:
 	UInputComponent* Uinput = nullptr;
 	///raycast and grab objects that are in reach 
 	void Grab();
+	///called when grab is released
+	void Release();
 };
