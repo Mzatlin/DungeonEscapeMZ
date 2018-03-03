@@ -24,7 +24,7 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-//private:
+private:
 	float LineReach = 100.f;
 		
 	UPhysicsHandleComponent* Uphysicshandler = nullptr;
@@ -33,4 +33,7 @@ public:
 	void Grab();
 	///called when grab is released
 	void Release();
+	void BindComponents();
+
+	const FHitResult GetFirstPhysicsBodyInReach();
 };
