@@ -23,6 +23,11 @@ protected:
 public:	
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+	///returns current end of reach line 
+	FVector GetLineReachEnd();
+
+	///returns current start of reach line 
+	FVector GetLineReachStart();
 
 private:
 	float LineReach = 100.f;

@@ -8,3 +8,6 @@ DungeonEscape/Content/StarterContent/
 
 # VS Generated Files
 *.VC.db
+*.suo
+*.VC.opendb
+*.sln
