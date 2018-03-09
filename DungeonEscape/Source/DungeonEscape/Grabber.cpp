@@ -54,7 +54,7 @@ const FHitResult UGrabber::GetFirstPhysicsBodyInReach()
 	GetWorld()->LineTraceSingleByObjectType(OUT Hit, GetLineReachStart(), GetLineReachEnd(), FCollisionObjectQueryParams(ECollisionChannel::ECC_PhysicsBody), TraceParameters);
 	AActor* HitActor = Hit.GetActor();
 	if (HitActor) {
-		UE_LOG(LogTemp, Warning, TEXT("Collided with: %s"), *(HitActor->GetName()));
+	///	UE_LOG(LogTemp, Warning, TEXT("Collided with: %s"), *(HitActor->GetName()));
 	}
 	return Hit;
 }
