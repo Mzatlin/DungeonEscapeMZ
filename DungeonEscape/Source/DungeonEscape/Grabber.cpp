@@ -66,12 +66,14 @@ void UGrabber::Grab(){
 	auto ActorHit = HitResult.GetActor();
 	//if we hit something, attach physics handle 
 	if (ActorHit != nullptr) {
+		if (!Uphysicshandler) { return; }
 		Uphysicshandler->GrabComponent(ComponentToGrab, NAME_None, ComponentToGrab->GetOwner()->GetActorLocation(), true); //true allows rotation
 	}
 }
 
 void UGrabber::Release() {
 	//remove physics handle 
+	if (!Uphysicshandler) { return; }
 	Uphysicshandler->ReleaseComponent();
 }
 
@@ -79,6 +81,7 @@ void UGrabber::Release() {
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if (!Uphysicshandler) { return;  }
 	GetFirstPhysicsBodyInReach();
 
 	///DrawDebugLine(GetWorld(), ViewPointLocation, LineTraceEnd, FColor(255, 0, 0), false, 0.f, 0.f, 10.f);
